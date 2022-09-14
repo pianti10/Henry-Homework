@@ -118,8 +118,8 @@ parseInt("09") // 09
 
 ```javascript
 function test() {
-   console.log(a);
-   console.log(foo());
+   console.log(a); // undefined
+   console.log(foo()); // 2
 
    var a = 1;
    function foo() {
@@ -127,7 +127,7 @@ function test() {
    }
 }
 
-test();
+test(); // ?
 ```
 
 Y el de este código? :
@@ -140,7 +140,7 @@ function getFood(food) {
         var snack = 'Friskies';
         return snack;
     }
-    return snack;
+    return snack; // unde fined
 }
 
 getFood(false);
@@ -165,9 +165,10 @@ var obj = {
 
 console.log(obj.prop.getFullname());
 
-var test = obj.prop.getFullname;
-
-console.log(test());
+var test = obj.prop.getFullname; // function() { 
+                                //    return this.fullname 
+                               //   }
+console.log(test()); // {fullname: Juan Perez}
 ```
 
 ### Event loop
