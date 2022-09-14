@@ -48,7 +48,7 @@ console.log(x); // 1
 ```javascript
 console.log(bar); // undefined
 console.log(baz); // baz is not defined
-foo();
+foo(); // Hola
 function foo() { console.log('Hola!'); }
 var bar = 1;
 baz = 2;
@@ -140,7 +140,7 @@ function getFood(food) {
         var snack = 'Friskies';
         return snack;
     }
-    return snack; // unde fined
+    return snack; // undefined
 }
 
 getFood(false);
