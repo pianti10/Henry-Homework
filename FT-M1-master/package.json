@@ -8,7 +8,8 @@
     "build": "eleventy"
   },
   "devDependencies": {
-    "@11ty/eleventy-plugin-syntaxhighlight": "^4.0.0"
+    "@11ty/eleventy-plugin-syntaxhighlight": "^4.0.0",
+    "jest": "^29.0.3"
   },
   "author": "Henry",
   "license": "ISC",
