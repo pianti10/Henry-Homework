@@ -8,7 +8,8 @@ function factorear(num) {
   // Tu código:
   let factores = [1];
   let factorActual = 2;
-  while (num !== 1) {
+  
+  while ( num > 1 ) {
     if (num % factorActual === 0) {
       factores.push(factorActual);
       num = num / factorActual;
@@ -24,10 +25,10 @@ function bubbleSort(array) {
   // el array recibido como parámetro
   // Devolver el array ordenado resultante
   // Tu código:
-  var cambio = true;
+  let cambio = true;
   while (cambio) {
     cambio = false;
-    for (let i = 0; i <= array.length - 1; i++) {
+    for (let i = 0; i < array.length - 1; i++) {
       if (array[i] > array[i + 1]) {
         let aux = array[i];
         array[i] = array[i + 1];
@@ -35,8 +36,8 @@ function bubbleSort(array) {
         cambio = true;
       }
     }
-    return array;
   }
+  return array;
 }
 
 function insertionSort(array) {
@@ -44,6 +45,16 @@ function insertionSort(array) {
   // el array recibido como parámetro utilizando arreglos
   // Devolver el array ordenado resultante
   // Tu código:
+  for (let i = 1; i < array.length; i++) {
+    let j = i -1; 
+    let aux = array[i];
+    while(j >= 0 && array[j] > aux) {
+      array[j+1] = array[j];
+      j--;
+    }
+    array[j+1] = aux;
+  }
+  return array;
 }
 
 function selectionSort(array) {
@@ -51,6 +62,20 @@ function selectionSort(array) {
   // el array recibido como parámetro utilizando dos arreglos
   // Devolver el array ordenado resultante
   // Tu código:
+  for (let i = 0; i < array.length; i++) {
+     let min = i;
+     for (let j = i+1; j < array.length; j++) {
+      if(array[j] < array[min]) {
+        min = j;
+      }
+     }
+     if(min !== i) {
+      let aux = array[i];
+      array[i] = array[min];
+      array[min] = aux;
+     }
+  }
+  return array;
 }
 
 // No modificar nada debajo de esta línea
