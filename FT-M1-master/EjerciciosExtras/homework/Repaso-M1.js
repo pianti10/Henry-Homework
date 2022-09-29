@@ -16,18 +16,15 @@ const {
 
 var countArray = function(array) {
     // Tu código aca:
-    let sum = 0; // 28
-
-        for(let i = 0; i < array.length; i++){
-            if(Array.isArray(array[i])){
-                sum += countArray(array[i]); // sum = 
-            }
-            else{
-                sum += array[i] // sum = 21 + 7
-            }
-        }
-        return sum; // 28
-
+   suma = 0;
+   for (let i = 0; i < array.length; i++) {
+    if(Array.isArray(array[i])) {
+    suma += countArray(array[i])
+   } else {
+    suma += array[i]
+   }
+   }
+   return suma;
 }
 
 
@@ -54,13 +51,10 @@ var countProps = function(obj) {
 
         for(let prop in obj){
             counter++;
-            if(typeof obj[prop] === 'object'){
-                if(!Array.isArray(obj[prop])){
-                    counter += countProps(obj[prop]) 
+            if(typeof obj[prop] === 'object' && !Array.isArray(obj[prop]))
+             counter += countProps(obj[prop]) 
                
                 }
-            }
-        }
         return counter; // 10
 }
 
