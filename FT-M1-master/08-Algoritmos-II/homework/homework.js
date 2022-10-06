@@ -1,4 +1,7 @@
 "use strict";
+
+const { merge } = require("@11ty/eleventy/src/TemplateData");
+
 // No cambies los nombres de las funciones.
 
 function quickSort(array) {
@@ -25,26 +28,25 @@ function quickSort(array) {
   
 
 function mergeSort(array) {
-  let middle = Math.floor(array.length / 2)
   if(array.length <= 1) return array;
-  let left = array.splice(0, middle) 
-  return merge(mergeSort(left), mergeSort(array));
-}
+  let middle = Math.floor(array.length / 2)
+  let left = array.slice(0, middle) 
+  let right = array.slice(middle, array.length)
+  array = []; 
   
-function merge(left, right) {
-  let arr = [];
-
+  left = mergeSort(left);
+  right = mergeSort(right);
   while(left.length && right.length) {
     if(left[0] < right[0]) {
-      arr.push(left[0]);
-      left.shift();
+      array.push(left.shift());
     } else {
-      arr.push(right[0])
-      right.shift();
+      array.push(right.shift());
     }
   }
-  return (arr).concat(left).concat(right);
+  array = array.concat(left, right);
+  return array;
 }
+  
 
 // No modificar nada debajo de esta línea
 // --------------------------------
